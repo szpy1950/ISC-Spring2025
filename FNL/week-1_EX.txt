@@ -1,0 +1,58 @@
+// ex1
+
+EX: detect tags in that code:
+
+<body>
+<h1 id="title">My First Heading</h1>
+<br/>
+<p>My first paragraph.</p>
+</body>
+
+
+S:
+/<(\/?[a-z]+[0-9]?)\s?[^>]*>/g
+
+Doc:
+
+<       one character <
+\       0 or 1 \ character
+[a-z]+  sequence of lowercase letters
+[0-9]?  0 or 1 digit
+\s?     0 or 1 whitespace
+
+
+// ex2
+
+EX: extract valid emails
+
+S:
+/[a-z]+@[a-z]+\.[a-z]{2,3}/g
+
+Doc:
+[a-z]+  sequence of lowercase letters
+@       a @ character
+[a-z]+  sequence of lowercase letters
+\.      a . character
+[a-z]{2,3}  2 or 3 sequence of lowercase letters
+
+// ex3
+
+EX: matches where a sentences ends and nother one begins
+
+S:
+/.*[^\sA-Z]\S[\.\!\?][\'\)\"]*\s[A-Z].*/g
+
+Doc:
+.*          any sequence of character that is not return line
+[^\sA-Z]    any character that is NOT a whitespace and NOT a capital letter
+\S          a non whitespace character
+[\.\!\?]    . or ! or ? character (end sentence character)
+[\'\)\"]*   if exsists ' or ) or " character (quotation character)
+\s          a whitespace character
+[A-Z]       one capital letter
+.*          any sequence of character that is not a return line
+
+
+
+
+
