@@ -7,3 +7,4 @@ seaborn
 ipykernel
 opencv-python
 scikit-learn
+scikit-image
